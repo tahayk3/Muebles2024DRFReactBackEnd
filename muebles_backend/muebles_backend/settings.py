@@ -64,6 +64,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'muebles_backend.urls'
 
+
+ALLOWED_HOSTS = [
+    'muebles2024drfreactbackend.onrender.com',  # Dominio de producción
+    'localhost',  # Para desarrollo local
+    '127.0.0.1',  # Para pruebas locales
+]
+#CORS
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Permitir solo tu aplicación local
+    "https://muebles2024drfreactbackend.onrender.com",  # Permitir tu aplicación en producción
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -173,19 +184,3 @@ SIMPLE_JWT = {
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
-
-
-ALLOWED_HOSTS = [
-    'muebles2024drfreactbackend.onrender.com',  # Dominio de producción
-    'localhost',  # Para desarrollo local
-    '127.0.0.1',  # Para pruebas locales
-]
-
-# CORS
-CORS_ALLOW_ALL_ORIGINS = False  # O True, dependiendo de tu preferencia
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Permitir solo tu aplicación local
-    "https://muebles2024drfreactbackend.onrender.com",  # Permitir tu aplicación en producción
-]
-
-
