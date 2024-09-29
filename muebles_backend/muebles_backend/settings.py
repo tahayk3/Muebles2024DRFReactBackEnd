@@ -29,8 +29,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
-
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -65,11 +63,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'muebles_backend.urls'
-
-#CORS
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
 
 TEMPLATES = [
     {
@@ -181,4 +174,18 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
+
+ALLOWED_HOSTS = [
+    'muebles2024drfreactbackend.onrender.com',  # Dominio de producción
+    'localhost',  # Para desarrollo local
+    '127.0.0.1',  # Para pruebas locales
+]
+
+# CORS
+CORS_ALLOW_ALL_ORIGINS = False  # O True, dependiendo de tu preferencia
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Permitir solo tu aplicación local
+    "https://muebles2024drfreactbackend.onrender.com",  # Permitir tu aplicación en producción
+]
+
+
