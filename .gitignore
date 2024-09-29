@@ -1,1 +1,9 @@
 /muebles_backend/muebles_backend/settings.py
+
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
