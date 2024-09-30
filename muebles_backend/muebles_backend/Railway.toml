@@ -1,0 +1,8 @@
+# Railway.toml
+[build]
+  # Este comando se ejecutará para construir tu aplicación
+  command = "pip install -r requirements.txt"
+
+[dev]
+  # Este comando se ejecutará para iniciar tu aplicación
+  command = "gunicorn muebles_backend.wsgi:application --bind 0.0.0.0:8000"
