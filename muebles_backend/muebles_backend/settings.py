@@ -66,6 +66,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Para desarrollo local
     "https://muebles2024drfreactbackend-production.up.railway.app",  # Para producción en Railway
     "https://muebles502xela.netlify.app",
+    "https://66faeae64eece200f2d12ef7--muebles502xela.netlify.app",
 ]
 
 
