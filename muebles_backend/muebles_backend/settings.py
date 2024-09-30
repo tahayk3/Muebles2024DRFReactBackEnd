@@ -29,12 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
-
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
+ALLOWED_HOSTS = [os.environ.get('RAILWAY_HOST', '*')]
 
 # Application definition
 
@@ -96,13 +91,14 @@ WSGI_APPLICATION = 'muebles_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'postgres'),
-        'USER':  os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT':  os.environ.get('DB_PORT', '5432'),                
+        'NAME': os.environ.get('DB_NAME', 'your_database_name'),  # Asegúrate de que coincida
+        'USER': os.environ.get('DB_USER', 'your_database_user'),  # Asegúrate de que coincida
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'your_database_password'),  # Asegúrate de que coincida
+        'HOST': os.environ.get('DB_HOST', 'your_database_host'),  # Asegúrate de que coincida
+        'PORT': os.environ.get('DB_PORT', '5432'),  # Generalmente es 5432
     }
 }
+
 
 
 # Password validation
