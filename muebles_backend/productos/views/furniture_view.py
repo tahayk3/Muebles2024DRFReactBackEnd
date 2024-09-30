@@ -7,6 +7,10 @@ from ..permissions import IsAdminUser, IsEditor, IsViewer
 
 from rest_framework.pagination import PageNumberPagination
 
+#Cache
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+
 
 class CustomPagination(PageNumberPagination):
     page_size = 3
@@ -18,6 +22,10 @@ class FurnitureListView(generics.ListCreateAPIView):
     queryset = FurnitureModel.objects.all()
     serializer_class = FurnitureSerializer
     pagination_class = CustomPagination
+
+    @method_decorator(cache_page(60 * 30))  # Cachea la vista durante 30 minutos
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
     def get_permissions(self):
         permission_classes = []
@@ -48,6 +56,10 @@ class FurnitureDetailView(generics.RetrieveAPIView):
     serializer_class = FurnitureSerializer
     permission_classes = [AllowAny]
 
+    @method_decorator(cache_page(60 * 30))  # Cachea la vista durante 30 minutos
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+    
     def get_permissions(self):
         if self.request.method == "GET":
             permission_classes = [AllowAny]
