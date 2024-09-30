@@ -14,11 +14,13 @@ class CustomPagination(PageNumberPagination):
     max_page_size = 3
 
 class FurnitureListView(generics.ListCreateAPIView):
+
     queryset = FurnitureModel.objects.all()
     serializer_class = FurnitureSerializer
     pagination_class = CustomPagination
 
     def get_permissions(self):
+        permission_classes = []
         if self.request.method == 'GET':
             permission_classes = [AllowAny]
         elif self.request.method == 'POST':
@@ -44,7 +46,7 @@ class FurnitureListView(generics.ListCreateAPIView):
 class FurnitureDetailView(generics.RetrieveAPIView):
     queryset = FurnitureModel.objects.all()
     serializer_class = FurnitureSerializer
-    persmission_classes = [AllowAny]
+    permission_classes = [AllowAny]
 
     def get_permissions(self):
         if self.request.method == "GET":
