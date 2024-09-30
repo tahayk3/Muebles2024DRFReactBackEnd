@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: my-django-app
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn myproject.wsgi:application"
+    staticPublishPath: staticfiles  # El directorio donde están tus archivos estáticos
