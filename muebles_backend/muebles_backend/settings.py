@@ -67,7 +67,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://muebles2024drfreactbackend-production.up.railway.app",  # Para producción en Railway
     "https://muebles502xela.netlify.app",
     "https://66faeae64eece200f2d12ef7--muebles502xela.netlify.app",
-    "https://muebles2024-drf-react-back-end.vercel.app"
+    "https://muebles2024-drf-react-back-end.vercel.app",
+     "https://muebles2024-drf-react-back-qur9uowp9-tahayk3s-projects.vercel.app/",
 ]
 
 
