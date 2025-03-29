@@ -13,9 +13,9 @@ from django.utils.decorators import method_decorator
 
 
 class CustomPagination(PageNumberPagination):
-    page_size = 6
+    page_size = 8
     page_size_query_param = 'page_size'
-    max_page_size = 6
+    max_page_size = 8
 
 class FurnitureListView(generics.ListCreateAPIView):
 
