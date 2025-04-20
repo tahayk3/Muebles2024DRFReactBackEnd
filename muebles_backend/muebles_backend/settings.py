@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = [os.environ.get('RAILWAY_HOST', '*')]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -53,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     #CORS
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -68,7 +67,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://muebles502xela.netlify.app",
     "https://66faeae64eece200f2d12ef7--muebles502xela.netlify.app",
     "https://muebles2024-drf-react-back-end.vercel.app",
-    "https://muebles2024-drf-react-back-qur9uowp9-tahayk3s-projects.vercel.app/",
+    "https://muebles2024-drf-react-back-qur9uowp9-tahayk3s-projects.vercel.app",
 ]
 
 
@@ -98,12 +97,8 @@ WSGI_APPLICATION = 'muebles_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'your_database_name'),  # Asegúrate de que coincida
-        'USER': os.environ.get('DB_USER', 'your_database_user'),  # Asegúrate de que coincida
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'your_database_password'),  # Asegúrate de que coincida
-        'HOST': os.environ.get('DB_HOST', 'your_database_host'),  # Asegúrate de que coincida
-        'PORT': os.environ.get('DB_PORT', '5432'),  # Generalmente es 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
